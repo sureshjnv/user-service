@@ -22,10 +22,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("users/register")
-	public ResponseEntity<String> register(@RequestBody UserRegisterDto dto){
-		return userService.register(dto);
-	}
+	
 	
 	
 	@GetMapping("users")
