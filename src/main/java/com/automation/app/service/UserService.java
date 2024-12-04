@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.automation.app.dao.UserDao;
@@ -53,6 +52,12 @@ public class UserService {
 		user.setStatus("Active");
 		userDao.save(user);
 		return new ResponseEntity<>("User Registered", HttpStatus.CREATED);
+	}
+
+	public String getUserStatus(Integer id) {
+		
+		return userDao.findById(id).get().getStatus();
+		
 	}
 
 }
